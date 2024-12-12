@@ -1,0 +1,76 @@
+ID Code,Color,Card Name,Stage Level/Type,Rarity
+,Colour,Card,Level,Type,Rarity
+EX7-001,Red,DemiMeramon,2,Digi-Egg,Common
+EX7-002,Blue,Hiyarimon,2,Digi-Egg,Common
+EX7-003,Yellow,Kyaromon,2,Digi-Egg,Uncommon
+EX7-004,Green,Fluffymon,2,Digi-Egg,Uncommon
+EX7-005,Black,Kapurimon,2,Digi-Egg,Uncommon
+EX7-006,Purple,Yaamon,2,Digi-Egg,Uncommon
+EX7-007,Red,Vorvomon,3,Digimon,Rare
+EX7-008,Red,ToyAgumon,3,Digimon,Uncommon
+EX7-009,Red,Lavorvomon,4,Digimon,Common
+EX7-010,Red,Deputymon,4,Digimon,Rare
+EX7-011,Red,Megadramon,5,Digimon,Common
+EX7-012,Red,Lavogaritamon,5,Digimon,Uncommon
+EX7-013,Red,MagnaKidmon,6,Digimon,Super Rare
+EX7-014,Red,Volcanicdramon,6,Digimon,Super Rare
+EX7-015,Blue,Otamamon,3,Digimon,Uncommon
+EX7-016,Blue,Bulucomon,3,Digimon,Rare
+EX7-017,Blue,SnowAgumon,3,Digimon,Common
+EX7-018,Blue,Gekomon,4,Digimon,Uncommon
+EX7-019,Blue,Sorcermon,4,Digimon,Common
+EX7-020,Blue,Paledramon,4,Digimon,Uncommon
+EX7-021,Blue,CrysPaledramon,5,Digimon,Rare
+EX7-022,Blue,ShogunGekomon,5,Digimon,Uncommon
+EX7-023,Blue,Hexeblaumon,6,Digimon,Super Rare
+EX7-024,Yellow,Shoemon,3,Digimon,Rare
+EX7-025,Yellow,ShoeShoemon,4,Digimon,Uncommon
+EX7-026,Yellow,Starmon,4,Digimon,Common
+EX7-027,Yellow,Chaperomon,5,Digimon,Rare
+EX7-028,Yellow,Piximon,5,Digimon,Common
+EX7-029,Yellow/Green,SaberLeomon ACE,6,Digimon,Super Rare
+EX7-030,Yellow,Cendrillmon,6,Digimon,Super Rare
+EX7-031,Green,Pteromon,3,Digimon,Rare
+EX7-032,Green,Galemon,4,Digimon,Uncommon
+EX7-033,Green,Monochromon,4,Digimon,Common
+EX7-034,Green,GrandGalemon,5,Digimon,Rare
+EX7-035,Green,Triceramon,5,Digimon,Common
+EX7-036,Green,Zephagamon,6,Digimon,Super Rare
+EX7-037,Green/Yellow/Black,Tlalocmon,7,Digimon,Super Rare
+EX7-038,Black,Gotsumon,3,Digimon,Uncommon
+EX7-039,Black,Jazamon,3,Digimon,Rare
+EX7-040,Black,ToyAgumon,3,Digimon,Uncommon
+EX7-041,Black,Tortomon,4,Digimon,Common
+EX7-042,Black,Jazardmon,4,Digimon,Common
+EX7-043,Black,Tankmon,4,Digimon,Common
+EX7-044,Black,Gigadramon,5,Digimon,Common
+EX7-045,Black,Jagamon,5,Digimon,Common
+EX7-046,Black,Jazarichmon,5,Digimon,Uncommon
+EX7-047,Black,Eldradimon,6,Digimon,Rare
+EX7-048,Black,Gundramon,6,Digimon,Super Rare
+EX7-049,Black,Metallicdramon,6,Digimon,Super Rare
+EX7-050,Purple/Red,Impmon,3,Digimon,Rare
+EX7-051,Purple,Sparrowmon,3,Digimon,Rare
+EX7-052,Purple,Tsukaimon,3,Digimon,Common
+EX7-053,Purple,Eyesmon: Scatter Mode,4,Digimon,Common
+EX7-054,Purple,BlackGatomon,4,Digimon,Uncommon
+EX7-055,Purple/Red,Punkmon,4,Digimon,Common
+EX7-056,Purple,Orochimon,5,Digimon,Common
+EX7-057,Purple/Red,Loudmon,5,Digimon,Uncommon
+EX7-058,Purple,LadyDevimon (X Antibody),5,Digimon,Rare
+EX7-059,Purple,BeelStarmon ACE,6,Digimon,Super Rare
+EX7-060,Purple,Nidhoggmon,6,Digimon,Rare
+EX7-061,Purple,Lilithmon (X Antibody),6,Digimon,Super Rare
+EX7-062,Purple/Red,HeavyMetaldramon,6,Digimon,Super Rare
+EX7-063,Yellow,Arisa Kinosaki,-,Tamer,Rare
+EX7-064,Green,Shoto Kazama,-,Tamer,Rare
+EX7-065,Purple,Yuuki,-,Tamer,Rare
+EX7-066,Red,Chaos Triangular,-,Option,Uncommon
+EX7-067,Blue,Summon Frost,-,Option,Common
+EX7-068,Yellow,Wonder Stomp,-,Option,Common
+EX7-069,Green,Wind Slicer,-,Option,Common
+EX7-070,Black,Der Blitz,-,Option,Uncommon
+EX7-071,Purple,Hurricane Screw Shot,-,Option,Uncommon
+EX7-072,Purple,Seventh Fascination,-,Option,Rare
+EX7-073,Purple,BeelStarmon (X Antibody),6,Option,Secret Rare
+EX7-074,Green/Yellow/Purple,Vortex Resonance,-,Option,Secret Rare
