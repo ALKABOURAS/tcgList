@@ -25,90 +25,99 @@ def extract_card_details(soup):
     return image_url, id_code, card_name, color, cardinfo_head, cardinfo_top, cardinfo_bottom
 
 
+def process_image_url(row):
+    cells = row.find_all([])
+    html_element, imgurl = str(cells).rsplit('src="../', 1)
+    imgurl = imgurl.split('"/>')[0]
+    return "https://world.digimoncard.com/" + imgurl
+
+
+def process_id_code(row):
+    html_element, idcode = str(row).rsplit('cardno">', 1)
+    idcode = idcode.split('</li>')[0]
+    return idcode
+
+
+def process_card_name(row):
+    html_element, cardname = str(row).rsplit('card_name">', 1)
+    cardname = cardname.split('</div>')[0]
+    return cardname
+
+
+def process_card_color(row):
+    cardcolor = str(row).split('">')[2]
+    cardcolor = cardcolor.split('</span>')[0]
+    return cardcolor
+
+
+def process_cardinfo_head(row):
+    cells = row.find_all(['li'])
+    row_data = [cell.text.strip() for cell in cells]
+    row_data.pop(0)
+    return row_data
+
+
+def process_cardinfo_top(row):
+    cells = row.find_all(['dd'])
+    row_data = [cell.text.strip() for cell in cells]
+    row_data.pop(0)
+    return row_data
+
+
+def process_cardinfo_bottom(row):
+    cells = row.find_all(['dd'])
+    row_data = [cell.text.strip() for cell in cells]
+    return row_data
+
+
 def reformat_card_details(image_url, id_code, card_name, color, cardinfo_head, cardinfo_top, cardinfo_bottom):
-    final_image_url = []
-    for row in image_url:
-        cells = row.find_all([])
-        html_element, imgurl = str(cells).rsplit('src="../', 1)
-        imgurl = imgurl.split('"/>')[0]
-        final_image_url_text = "https://world.digimoncard.com/" + imgurl
-        final_image_url.append(final_image_url_text)
+    final_image_url = list(map(process_image_url, image_url))
 
-    final_card_id = []
-    for row in id_code:
-        html_element, idcode = str(row).rsplit('cardno">', 1)
-        idcode = idcode.split('</li>')[0]
-        final_card_id.append(idcode)
+    final_card_id = list(map(process_id_code, id_code))
 
-    final_card_name = []
-    for row in card_name:
-        html_element, cardname = str(row).rsplit('card_name">', 1)
-        cardname = cardname.split('</div>')[0]
-        final_card_name.append(cardname)
+    final_card_name = list(map(process_card_name, card_name))
 
-    final_card_color = []
-    for row in color:
-        cardcolor = str(row).split('">')[2]
-        cardcolor = cardcolor.split('</span>')[0]
-        final_card_color.append(cardcolor)
+    final_card_color = list(map(process_card_color, color))
 
-    infohead = []
-    i = 0
-    for row in cardinfo_head:
-        cells = row.find_all(['li'])
-        row_data = [cell.text.strip() for cell in cells]
-        infohead.append(row_data)
-        infohead[i].pop(0)
-        i += 1
+    infohead = list(map(process_cardinfo_head, cardinfo_head))
 
-    infotop = []
-    i = 0
-    for row in cardinfo_top:
-        cells = row.find_all(['dd'])
-        row_data = [cell.text.strip() for cell in cells]
-        infotop.append(row_data)
-        infotop[i].pop(0)
-        i += 1
+    infotop = list(map(process_cardinfo_top, cardinfo_top))
 
-    infobottom = []
-    for row in cardinfo_bottom:
-        cells = row.find_all(['dd'])
-        row_data = [cell.text.strip() for cell in cells]
-        infobottom.append(row_data)
+    infobottom = list(map(process_cardinfo_bottom, cardinfo_bottom))
 
     return final_image_url, final_card_id, final_card_name, final_card_color, infohead, infotop, infobottom
 
 
+def process_final_card_details(i, final_image_url, final_card_id, final_card_name, final_card_color, infohead, infotop,
+                               infobottom):
+    card_details = [
+        final_image_url[i],
+        final_card_id[i],
+        final_card_name[i],
+        final_card_color[i]
+    ]
+    card_details.extend(infohead[i])
+    card_details.extend(infotop[i])
+    card_details.extend(infobottom[i])
+    return card_details
+
+
 def create_final_tables(final_image_url, final_card_id, final_card_name, final_card_color, infohead, infotop,
                         infobottom):
-    final_card_details = []
-    i = 0
-    for rows in final_card_id:
-        final_card_details.insert(i, [
-            final_image_url[i],
-            final_card_id[i],
-            final_card_name[i],
-            final_card_color[i]
-        ])
-        final_card_details[i].extend(infohead[i])
-        final_card_details[i].extend(infotop[i])
-        final_card_details[i].extend(infobottom[i])
-        i += 1
+    indices = range(len(final_card_id))
+    final_card_details = list(
+        map(lambda i: process_final_card_details(i, final_image_url, final_card_id, final_card_name, final_card_color,
+                                                 infohead, infotop, infobottom), indices))
     return final_card_details
 
 
+def is_alternative_art(card_detail):
+    return "Alternative Art" in str(card_detail)
+
+
 def separate_alt_art(final_card_details):
-    final_card_list = []
-    final_card_list_alt_art = []
-    c1 = 0
-    c2 = 0
-    for i in range(len(final_card_details)):
-        if "Alternative Art" in str(final_card_details[i]):
-            final_card_list_alt_art.insert(c1, final_card_details[i])
-            c1 += 1
-        else:
-            final_card_list.insert(c2, final_card_details[i])
-            c2 += 1
+    final_card_list_alt_art = list(filter(is_alternative_art, final_card_details))
+    final_card_list = list(filter(lambda x: not is_alternative_art(x), final_card_details))
     return final_card_list, final_card_list_alt_art
 
 
